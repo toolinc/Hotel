@@ -1,8 +1,10 @@
 package hotelapp;
 
 public class TouristAttraction {
-    // FILL IN CODE: add instance variables to store
-    // name, rating, address, id
+    private final String attractionId;
+    private final String name;
+    private final String address;
+    private final double rating;
 
     /** Constructor for TouristAttraction
      *
@@ -12,10 +14,31 @@ public class TouristAttraction {
      * @param address
      */
     public TouristAttraction(String id, String name, double rating, String address) {
-        // FILL IN CODE
+        attractionId = id;
+        this.name = name;
+        this.rating = rating;
+        this.address = address;
     }
 
-    // FILL IN CODE: add getters as needed
+    /** @return the attraction Id*/
+    public String getAttractionId() {
+        return attractionId;
+    }
+
+    /** @return the name of the attraction*/
+    public String getName() {
+        return name;
+    }
+
+    /** @return the address of the attraction*/
+    public String getAddress() {
+        return address;
+    }
+
+    /** @return the rating attraction*/
+    public double getRating() {
+        return rating;
+    }
 
     /** toString() method
      * @return a String representing this
