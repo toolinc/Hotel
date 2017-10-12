@@ -9,7 +9,7 @@ public class TouristAttractionFinder {
     private static final String host = "maps.googleapis.com";
     private static final String path = "/maps/api/place/textsearch/json";
     private static final String FIND_TYPE = "attractions";
-    private static final String API_KEY = "AIzaSyBhFjxfTNwfFdz1fX-EQRWeEJXwNKixQkk";
+
 
     private ThreadSafeHotelData hdata;
 
@@ -37,13 +37,6 @@ public class TouristAttractionFinder {
         TouristAttraction touristAttraction = new TouristAttraction();
         // FILL IN CODE
         // This method should call getRequest method
-
-        https://maps.googleapis.com/maps/api/place/nearbysearch/json
-                ?location=-33.8670522,151.1957362
-                &radius=500
-                &types=food
-                &name=harbour
-                &key=YOUR_API_KEY
 
 
         StringBuffer buf = new StringBuffer();

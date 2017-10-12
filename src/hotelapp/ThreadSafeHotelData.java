@@ -151,4 +151,16 @@ public class ThreadSafeHotelData extends HotelData {
 			super.mergeReviews(localHdata);
 		} finally { lock.unlockWrite(); }
 	}
+
+	/**
+	 * Get the Lat and Lon of the Hotel
+	 * @param hId - Hotel Id
+	 * @Return the latitude and Longitude of the Hotel
+	 */
+	public double[] getLocationHotel (String hId){
+		try {
+			lock.lockRead ();
+			return super.getLocationHotel(hId);
+		} finally { lock.unlockRead(); }
+	}
 }

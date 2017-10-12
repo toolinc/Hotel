@@ -80,7 +80,6 @@ public class HotelData {
     public boolean addReview(String hotelId, String reviewId, int rating, String reviewTitle, String review,
                              boolean isRecom, String date, String username) {
 
-        //if (!hotels.containsKey(hotelId)) return false;
         try {
             Review newReview = Review.Builder
                     .newBuilder()
@@ -121,6 +120,20 @@ public class HotelData {
         hdata.reviews.forEach((key, values) -> {
             this.reviews.put(key, values);
         });
+    }
+
+
+    /**
+     * Get the Lat and Lon of the Hotel
+     * @param hId - Hotel Id
+     * @Return the latitude and Longitude of the Hotel
+     */
+    public double[] getLocationHotel (String hId){
+        if(hotels.containsKey(hId)){
+            Address address = hotels.get(hId).getAddress();
+            return new double[]{address.getLat(),address.getLon()};
+        }
+        return new double[]{};
     }
 
     /**

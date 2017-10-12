@@ -9,11 +9,11 @@ import java.util.Objects;
  */
 public class Address {
 
-    private String city;
-    private String state;
-    private String streetAddress;
-    private double lat;
-    private double lon;
+    private final String city;
+    private final String state;
+    private final String streetAddress;
+    private final double lat;
+    private final double lon;
 
     /**
      * Constructor that takes city, state, streetAddress, latitude and longitude
