@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 /** The class stores information about one hotel review.
  *  Stores the id of the review, the id of the corresponding hotel, the rating, 
@@ -20,24 +21,36 @@ import java.util.Date;
  */
 public class Review implements Comparable<Review> {
 
+//	public static final double MINREVIEW = 1;
+//	public static final double MAXREVIEW = 5;
+//
+//	private String hotelId;
+//	private String reviewId;
+//	private int rating;
+//	private String reviewTitle;
+//	private String review;
+//	private boolean isRecom;
+//	private Date date;
+//	private String username;
 	public static final double MINREVIEW = 1;
 	public static final double MAXREVIEW = 5;
 
-	private String hotelId;
-	private String reviewId;
-	private int rating;
-	private String reviewTitle;
-	private String review;
-	private boolean isRecom;
-	private Date date;
-	private String username;
+	private final String hotelId;
+	private final String reviewId;
+	private final int rating;
+	private final String reviewTitle;
+	private final String review;
+	private final boolean isRecom;
+	private final Date date;
+	private final String username;
 
-	/**
-	 * Default constructor.
-	 */
-	public Review() {
 
-	}
+//	/**
+//	 * Default constructor.
+//	 */
+//	public Review() {
+//
+//	}
 
 	/**
 	 * Constructor
@@ -48,10 +61,10 @@ public class Review implements Comparable<Review> {
 	 *            = the id of the review
 	 * By default, the hotel is recommended.
 	 */
-	public Review(String hotelId, String reviewId) {
-		this.hotelId = hotelId;
-		this.reviewId = reviewId;
-	}
+//	public Review(String hotelId, String reviewId) {
+//		this.hotelId = hotelId;
+//		this.reviewId = reviewId;
+//	}
 
 	/**
 	 * Constructor
@@ -77,20 +90,30 @@ public class Review implements Comparable<Review> {
 	 * @throws InvalidRatingException
 	 * 			   - If the rating is out of the correct range from MINREVIEW TO MAXREVIEW
 	 */
-	public Review(String hotelId, String reviewId, int rating, String reviewTitle, String review, boolean isRecom,
-			String date, String username) throws ParseException, InvalidRatingException {
-		final DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		if(rating > MAXREVIEW || rating < MINREVIEW) throw new InvalidRatingException("Out of the range rating");
-		this.date = format.parse(date);
-		this.hotelId = hotelId;
-		this.reviewId = reviewId;
-		this.rating = rating;
-		this.reviewTitle = reviewTitle;
-		this.review = review;
-		this.isRecom = isRecom;
-		this.username = username.equals("") ? "Anonymous" : username;
-	}
+//	public Review(String hotelId, String reviewId, int rating, String reviewTitle, String review, boolean isRecom,
+//			String date, String username) throws ParseException, InvalidRatingException {
+//		final DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+//		if(rating > MAXREVIEW || rating < MINREVIEW) throw new InvalidRatingException("Out of the range rating");
+//		this.date = format.parse(date);
+//		this.hotelId = hotelId;
+//		this.reviewId = reviewId;
+//		this.rating = rating;
+//		this.reviewTitle = reviewTitle;
+//		this.review = review;
+//		this.isRecom = isRecom;
+//		this.username = username.equals("") ? "Anonymous" : username;
+//	}
 
+	private Review(Builder builder) {
+		this.date = builder.date;
+		this.hotelId = builder.hotelId;
+		this.reviewId = builder.reviewId;
+		this.rating = builder.rating;
+		this.reviewTitle = builder.reviewTitle;
+		this.review = builder.review;
+		this.isRecom = builder.isRecom;
+		this.username = builder.username;
+	}
 
 	/**
 	 * @return the Id of the Hotel
@@ -99,13 +122,13 @@ public class Review implements Comparable<Review> {
 		return hotelId;
 	}
 
-	/**
-	 * Sets the id of the hotel.
-	 * @param hotelId the hotelId to set
-	 */
-	public void setHotelId(String hotelId) {
-		this.hotelId = hotelId;
-	}
+//	/**
+//	 * Sets the id of the hotel.
+//	 * @param hotelId the hotelId to set
+//	 */
+//	public void setHotelId(String hotelId) {
+//		this.hotelId = hotelId;
+//	}
 
 	/**
 	 * @return the review Id of the Hotel
@@ -114,13 +137,13 @@ public class Review implements Comparable<Review> {
 		return reviewId;
 	}
 
-	/**
-	 * Sets the id of the review.
-	 * @param reviewId the reviewId to set
-	 */
-	public void setReviewId(String reviewId) {
-		this.reviewId = reviewId;
-	}
+//	/**
+//	 * Sets the id of the review.
+//	 * @param reviewId the reviewId to set
+//	 */
+//	public void setReviewId(String reviewId) {
+//		this.reviewId = reviewId;
+//	}
 
 	/**
 	 * @return the rating of the Hotel
@@ -129,13 +152,13 @@ public class Review implements Comparable<Review> {
 		return rating;
 	}
 
-	/**
-	 * Sets the rating of the hotel.
-	 * @param rating the rating to set
-	 */
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
+//	/**
+//	 * Sets the rating of the hotel.
+//	 * @param rating the rating to set
+//	 */
+//	public void setRating(int rating) {
+//		this.rating = rating;
+//	}
 
 	/**
 	 * @return the review Title of the Hotel
@@ -144,13 +167,13 @@ public class Review implements Comparable<Review> {
 		return reviewTitle;
 	}
 
-	/**
-	 * Sets the title of the review.
-	 * @param reviewTitle the reviewTitle to set
-	 */
-	public void setReviewTitle(String reviewTitle) {
-		this.reviewTitle = reviewTitle;
-	}
+//	/**
+//	 * Sets the title of the review.
+//	 * @param reviewTitle the reviewTitle to set
+//	 */
+//	public void setReviewTitle(String reviewTitle) {
+//		this.reviewTitle = reviewTitle;
+//	}
 
 	/**
 	 * @return the review text of the Hotel
@@ -159,13 +182,13 @@ public class Review implements Comparable<Review> {
 		return review;
 	}
 
-	/**
-	 * Sets the review of the hotel.
-	 * @param review the review to set
-	 */
-	public void setReview(String review) {
-		this.review = review;
-	}
+//	/**
+//	 * Sets the review of the hotel.
+//	 * @param review the review to set
+//	 */
+//	public void setReview(String review) {
+//		this.review = review;
+//	}
 
 	/**
 	 * @return if the Hotel is commendend or not
@@ -174,13 +197,13 @@ public class Review implements Comparable<Review> {
 		return isRecom;
 	}
 
-	/**
-	 * Sets the recomendation of the hotel.
-	 * @param recom the isRecom to set
-	 */
-	public void setRecom(boolean recom) {
-		isRecom = recom;
-	}
+//	/**
+//	 * Sets the recomendation of the hotel.
+//	 * @param recom the isRecom to set
+//	 */
+//	public void setRecom(boolean recom) {
+//		isRecom = recom;
+//	}
 
 	/**
 	 * @return the date of the review of the Hotel
@@ -189,14 +212,14 @@ public class Review implements Comparable<Review> {
 		return date;
 	}
 
-	/**
-	 * Sets the date of the review.
-	 * @param date the date to set
-	 */
-	public void setDate(String date) throws ParseException {
-		final DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		this.date = format.parse(date);
-	}
+//	/**
+//	 * Sets the date of the review.
+//	 * @param date the date to set
+//	 */
+//	public void setDate(String date) throws ParseException {
+//		final DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+//		this.date = format.parse(date);
+//	}
 
 	/**
 	 * @return the username of the review
@@ -205,13 +228,23 @@ public class Review implements Comparable<Review> {
 		return username;
 	}
 
-	/**
-	 * Sets the user of the review.
-	 * @param username the username to set
-	 */
-	public void setUsername(String username) {
-		this.username = username;
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(reviewId);
 	}
+
+	@Override
+	public boolean equals(Object aThat) {
+		if (this == aThat) {
+			return true;
+		}
+		if (!(aThat instanceof Review)) {
+			return false;
+		}
+		Review that = (Review) aThat;
+		return Objects.equals(reviewId, that.reviewId);
+	}
+
 
 	/** Compares this review with the review passed as a parameter based on
 	 *  the dates (more recent date is "less" than older date).
@@ -258,5 +291,69 @@ public class Review implements Comparable<Review> {
 		sb.append(getReviewTitle()).append(System.lineSeparator());
 		sb.append(getReview());
 		return sb.toString();
+	}
+
+	public static final class Builder {
+
+		private String hotelId;
+		private String reviewId;
+		private int rating;
+		private String reviewTitle;
+		private String review;
+		private boolean isRecom;
+		private Date date;
+		private String username;
+
+		private Builder() {}
+
+		public Builder setHotelId(String hotelId) {
+			this.hotelId = hotelId;
+			return this;
+		}
+
+		public Builder setReviewId(String reviewId) {
+			this.reviewId = reviewId;
+			return this;
+		}
+
+		public Builder setRating(int rating) throws InvalidRatingException {
+			if (rating > MAXREVIEW || rating < MINREVIEW) throw new InvalidRatingException("Out of the range rating");
+			this.rating = rating;
+			return this;
+		}
+
+		public Builder setReviewTitle(String reviewTitle) {
+			this.reviewTitle = reviewTitle;
+			return this;
+		}
+
+		public Builder setReview(String review) {
+			this.review = review;
+			return this;
+		}
+
+		public Builder setRecom(boolean recom) {
+			isRecom = recom;
+			return this;
+		}
+
+		public Builder setDate(String date) throws ParseException {
+			final DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+			this.date = format.parse(date);
+			return this;
+		}
+
+		public Builder setUsername(String username) {
+			this.username = username.equals("") ? "Anonymous" : username;
+			return this;
+		}
+
+		public Review build() {
+			return new Review(this);
+		}
+
+		public static final Builder newBuilder() {
+			return new Builder();
+		}
 	}
 }

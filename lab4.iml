@@ -26,5 +26,10 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
+    <orderEntry type="library" name="log4j-api-2.9.1" level="project" />
+    <orderEntry type="library" name="log4j-api-2.9.1-javadoc" level="project" />
+    <orderEntry type="library" name="log4j-core-2.9.1" level="project" />
+    <orderEntry type="library" name="log4j-core-2.9.1-javadoc" level="project" />
   </component>
 </module>
