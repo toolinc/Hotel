@@ -49,9 +49,16 @@ public class HotelData {
      * @param lon           longitude
      */
     public void addHotel(String hotelId, String hotelName, String city, String state, String streetAddress, double lat, double lon) {
-        Address newAddress = new Address(city, state, streetAddress, lat, lon);
-        Hotel newHotel = new Hotel(hotelId, hotelName, newAddress);
-        hotels.put(hotelId, newHotel);
+        Address address =
+                Address.Builder.newBuilder()
+                        .setStreetAddress(streetAddress)
+                        .setCity(city)
+                        .setState(state)
+                        .setLat(lat)
+                        .setLon(lon)
+                        .build();
+        Hotel hotel = Hotel.Builder.newBuilder().setId(hotelId).setName(hotelName).setAddress(address).build();
+        hotels.put(hotelId, hotel);
     }
 
     /**
@@ -75,21 +82,33 @@ public class HotelData {
 
         //if (!hotels.containsKey(hotelId)) return false;
         try {
-            Review newReview = new Review(hotelId, reviewId, rating, reviewTitle, review, isRecom, date, username);
-            if (reviews.containsKey(hotelId)) {
-                reviews.get(hotelId).add(newReview);
-            } else {
-                TreeSet<Review> treeSetReview = new TreeSet<Review>();
-                treeSetReview.add(newReview);
-                reviews.put(hotelId, treeSetReview);
-            }
+            Review newReview = Review.Builder
+                    .newBuilder()
+                    .setHotelId(hotelId)
+                    .setReviewId(reviewId)
+                    .setRating(rating)
+                    .setReviewTitle(reviewTitle)
+                    .setReview(review)
+                    .setRecom(isRecom)
+                    .setDate(date)
+                    .setUsername(username)
+                    .build();
+            addReview(newReview);
             return true;
-        } catch (java.text.ParseException e) {
+        } catch (java.text.ParseException | InvalidRatingException e) {
             e.printStackTrace();
             return false;
-        } catch (InvalidRatingException e) {
-            e.printStackTrace();
-            return false;
+        }
+    }
+
+    private void addReview(Review newReview) {
+        String hotelId = newReview.getHotelId();
+        if (reviews.containsKey(hotelId)) {
+            reviews.get(hotelId).add(newReview);
+        } else {
+            TreeSet<Review> treeSetReview = new TreeSet<Review>();
+            treeSetReview.add(newReview);
+            reviews.put(hotelId, treeSetReview);
         }
     }
 
@@ -142,7 +161,6 @@ public class HotelData {
         return sb.toString();
     }
 
-
     /**
      * Return a list of hotel ids, in alphabetical order of hotelIds
      *
@@ -174,16 +192,6 @@ public class HotelData {
 
 
     /**
-     * Set the average rating for a specif hotel
-     *
-     * @param hotelId -Hotel Id
-     **/
-    public void setAvgHotel(String hotelId) {
-        hotels.get(hotelId).setAverageRating(getRating(hotelId));
-    }
-
-
-    /**
      * Read the given json file with information about the hotels (check hotels.json to see the expected format)
      * and load it into the appropriate data structure(s).
      * Do not hardcode the name of the file! the could should work on any json file in the same format.
@@ -203,11 +211,7 @@ public class HotelData {
                         ((String) mapHotleJson.get("pr")), ((String) mapHotleJson.get("ad")),
                         Double.parseDouble((String) mapLLHotel.get("lat")), Double.parseDouble((String) mapLLHotel.get("lng")));
             }
-        } catch (FileSystemNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (FileSystemNotFoundException | IOException | ParseException e) {
             e.printStackTrace();
         }
     }
@@ -253,7 +257,6 @@ public class HotelData {
             e.printStackTrace();
         }
     }
-
 
     /**
      * Save the string representation of the hotel data to the file specified by
