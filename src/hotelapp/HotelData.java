@@ -124,17 +124,29 @@ public class HotelData {
 
 
     /**
-     * Get the Lat and Lon of the Hotel
      * @param hId - Hotel Id
-     * @Return the latitude and Longitude of the Hotel
+     * @Return the location of the Hotel
+     *  format [lat, lon, city]
      */
-    public double[] getLocationHotel (String hId){
+    public Object[] getLocationHotel (String hId){
         if(hotels.containsKey(hId)){
             Address address = hotels.get(hId).getAddress();
-            return new double[]{address.getLat(),address.getLon()};
+            return new Object[]{address.getLat(),address.getLon(),address.getCity()};
         }
-        return new double[]{};
+        return new Object[]{};
     }
+
+    /**
+     * @param hId - Hotel Id
+     * @Return the Name of the Hotel
+     */
+    public String getHotelName (String hId){
+        if(hotels.containsKey(hId)){
+            return hotels.get(hId).getName();
+        }
+        return "";
+    }
+
 
     /**
      * Returns a string representing information about the hotel with the given

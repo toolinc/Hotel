@@ -154,13 +154,21 @@ public class ThreadSafeHotelData extends HotelData {
 
 	/**
 	 * Get the Lat and Lon of the Hotel
-	 * @param hId - Hotel Id
-	 * @Return the latitude and Longitude of the Hotel
+	 * @Return the location of the Hotel
+	 *  format [lat, lon, city]
 	 */
-	public double[] getLocationHotel (String hId){
+	public Object[] getLocationHotel (String hId){
 		try {
 			lock.lockRead ();
 			return super.getLocationHotel(hId);
 		} finally { lock.unlockRead(); }
+	}
+
+	/**
+	 * @param hId - Hotel Id
+	 * @Return the Name of the Hotel
+	 */
+	public String getHotelName (String hId){
+		return super.getHotelName(hId);
 	}
 }

@@ -45,8 +45,11 @@ public class TouristAttraction {
      */
     @Override
     public String toString() {
-        // FILL IN CODE
-        return ""; // do not forget to change this
+        StringBuilder sb = new StringBuilder();
+        sb.append(name);
+        sb.append("; ");
+        sb.append(address);
+        return sb.toString();
     }
 
     public static final class Builder{
