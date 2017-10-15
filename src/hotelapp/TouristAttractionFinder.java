@@ -17,10 +17,11 @@ public class TouristAttractionFinder {
 
     private static final String host = "maps.googleapis.com";
     private static final String path = "/maps/api/place/textsearch/json";
-    private static final String FIND_TYPE = "tourist+attractions+in+";
+//    private static final String FIND_TYPE = "tourist+attractions+in+";
+    private static final String FIND_TYPE = "tourist%20attractions+in+";
     private static final String API_KEY_PATH = "input/ApiKey.txt";
     private static final int PORT = 443;
-    private static final double MileToMeters = 1609.34;
+    private static final int MILE_TO_METERS = 1609;
 
     private final ThreadSafeHotelData hdata;
     private final Map<String,List<TouristAttraction>> listAttractions;
@@ -34,7 +35,6 @@ public class TouristAttractionFinder {
         listAttractions = new HashMap<>();
     }
 
-
     /**
      * Creates a secure socket to communicate with googleapi's server that
      * provides Places API, sends a GET request (to find attractions close to
@@ -45,7 +45,6 @@ public class TouristAttractionFinder {
     public void fetchAttractions(int radiusInMiles) {
         List<String> hotels= hdata.getHotels();
         StringBuffer sb = new StringBuffer();
-
         URL url;
         PrintWriter out = null;
         BufferedReader in = null;
@@ -54,23 +53,14 @@ public class TouristAttractionFinder {
             url = new URL("https://"+host);
             SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
             socket = (SSLSocket) factory.createSocket(url.getHost(), PORT);
-
-            // output stream for the secure socket
             out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
             for (String id: hotels){
-
-                String request = getRequest(id, radiusInMiles*MileToMeters);
+                String request = getRequest(id, radiusInMiles*MILE_TO_METERS);
                 System.out.println("Request: " + request);
-
-                // send a request to the server
                 out.println(request);
                 out.flush();
-
-                // input stream for the secure socket.
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-                // use input stream to read server's response
                 String line;
                 while ((line = in.readLine()) != null) {
                     if(!line.matches("^[A-Z].*")) {
@@ -78,9 +68,10 @@ public class TouristAttractionFinder {
                         sb.append(System.lineSeparator());
                     }
                 }
-
+                if(id.equals("12539")){
+                    System.out.println(sb.toString());
+                }
                 loadAttractions(id, sb.toString());
-
             }
         } catch (IOException e) {
             System.out.println(
@@ -102,29 +93,48 @@ public class TouristAttractionFinder {
      * @param radius
      * @return HTTP GET request returned as a string
      */
-    private  String getRequest(String hotelId, double radius) {
+    private  String getRequest(String hotelId, int radius) {
         Object[] location = hdata.getLocationHotel(hotelId);
-        System.out.println(location[0] +" "+ location[1]);
+        System.out.println(location[0] +" "+ location[1] + " "+ location[2]);
         String request = "GET " + path
-                + "?location="+ location[0] + location[1]
+                + "?query=" + FIND_TYPE+((String) location[2]).replace(" ", "+")
+                + "&location="+ location[0] +","+ location[1]
                 + "&radius=" + radius
-                + "&query=" + FIND_TYPE+((String) location[2]).replace(" ", "+")
                 + "&key="+ getApiKey()
                 + " HTTP/1.1" + System.lineSeparator()
                 + "Host: " + host + System.lineSeparator()
                 + "Connection: close" + System.lineSeparator()
                 + System.lineSeparator();
-
         return request;
     }
 
-    /** Print attractions near the hotels to a file.
+    /**
+     * Print attractions near the hotels to a file.
      * The format is described in the lab description.
      *
      * @param filename
      */
     public void printAttractions(Path filename) {
-
+        StringBuilder sb = new StringBuilder();
+        listAttractions.forEach((hotelId, attractions) -> {
+            sb.append("Attractions near ");
+            sb.append(hdata.getHotelName(hotelId));
+            sb.append(", ");
+            sb.append(hotelId);
+            sb.append(System.lineSeparator());
+            attractions.forEach((attraction)->{
+                sb.append(attraction);
+                sb.append(System.lineSeparator());
+            });
+            sb.append("++++++++++++++++++++");
+            sb.append(System.lineSeparator());
+        });
+        sb.deleteCharAt(sb.length()-1);
+        try (PrintWriter writer = new PrintWriter(filename.toString())) {
+            writer.println(sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -160,18 +170,11 @@ public class TouristAttractionFinder {
             Object obj = parser.parse(attractionsList);
             JSONArray attractions = (JSONArray) ((JSONObject) obj).get("results");
             Iterator<JSONObject> iterator = attractions.iterator();
-
             List<TouristAttraction> list = new ArrayList<>();
-
             while(iterator.hasNext()){
                 double rating;
                 JSONObject att = iterator.next();
-
-                System.out.println(att.get("id"));
-                System.out.println(att.get("name"));
-                System.out.println(att.get("formatted_address"));
-                System.out.println(att.get("rating"));
-
+                System.out.println((String) att.get("name"));
                 if(att.get("rating") == null) {
                     rating = 0;
                 }else if (att.get("rating").getClass() == Long.class){
@@ -179,14 +182,12 @@ public class TouristAttractionFinder {
                 } else {
                     rating = (Double) att.get("rating");
                 }
-
                 TouristAttraction attraction = TouristAttraction.Builder.newBuilder()
                         .setId((String) att.get("id"))
                         .setName((String) att.get("name"))
                         .setAddress((String) att.get("formatted_address"))
                         .setRating(rating)
                         .build();
-
                 list.add(attraction);
             }
             listAttractions.put(hotelId, list);
