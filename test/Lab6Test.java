@@ -10,7 +10,7 @@ import hotelapp.*;
  * Author: okarpenko.
  *
  */
-public class Lab4Test {
+public class Lab6Test {
 
 	public static final String INPUT_DIR = "input";
 	public static final String OUTPUT_DIR = "test";
