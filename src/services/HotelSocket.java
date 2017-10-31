@@ -46,11 +46,11 @@ public class HotelSocket {
 
     private class ClientTask implements Runnable {
         private final Socket connectionSocket;
-        
+        private final Pattern pattern;
 
         private ClientTask(Socket connectionSocket) {
             this.connectionSocket = connectionSocket;
-
+            pattern = Pattern.compile("^(GET|POST)\\s((.+?)\\?([^?]*))(HTTP/.+)");
         }
 
         @Override
@@ -63,7 +63,7 @@ public class HotelSocket {
 
                 out = new PrintWriter(connectionSocket.getOutputStream(), true);
 
-
+                
             } catch (IOException e) {
                 System.out.println(e);
             } finally {
