@@ -47,23 +47,55 @@ public class HotelSocket {
     private class ClientTask implements Runnable {
         private final Socket connectionSocket;
         private final Pattern pattern;
+        private final GetInfo info;
 
         private ClientTask(Socket connectionSocket) {
             this.connectionSocket = connectionSocket;
             pattern = Pattern.compile("^(GET|POST)\\s((.+?)\\?([^?]*))(HTTP/.+)");
+            info = new GetInfo();
         }
 
         @Override
         public void run() {
             System.out.println("A client connected.");
-
             PrintWriter out = null;
             BufferedReader in = null;
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()))) {
-
                 out = new PrintWriter(connectionSocket.getOutputStream(), true);
+                String input;
+                String path = "";
+                String query = "";
+                while (!connectionSocket.isClosed()) {
+                    input = reader.readLine();
+                    System.out.println("Server received: " + input); // echo the same string to the console
+                    if (input.isEmpty()) {
+                        out.println("<html><body><h1>Hello, World!</h1></body></html>");
+                        System.out.println("response: <html><body><h1>Hello, World!</h1></body></html>");
+                        System.out.println("path: "+path);
+                        System.out.println("query : "+query);
 
-                
+                        switch (path){
+                            case "/hotelInfo":
+                                out.println(info.getHotelInfo(query));
+                                break;
+                            case "/reviews":
+                                info.getReviews(query);
+                                break;
+                            case "/attractions":
+                                info.getAttractions(query);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if(input.matches("(GET|POST).+")) {
+                        Matcher matcher = pattern.matcher(input);
+                        while (matcher.find()) {
+                            path = matcher.group(3);
+                            query = matcher.group(4);
+                        }
+                    }
+                }
             } catch (IOException e) {
                 System.out.println(e);
             } finally {
@@ -71,7 +103,8 @@ public class HotelSocket {
                     if (connectionSocket != null) {
                         connectionSocket.close();
                     }
-
+                    out.close();
+                    in.close();
                 } catch (IOException e) {
                     System.out.println("Can't close the socket : " + e);
                 }

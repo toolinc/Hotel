@@ -169,6 +169,37 @@ public class ThreadSafeHotelData extends HotelData {
 	 * @Return the Name of the Hotel
 	 */
 	public String getHotelName (String hId){
-		return super.getHotelName(hId);
+		try {
+			lock.lockRead();
+			return super.getHotelName(hId);
+		} finally {
+			lock.unlockRead();
+		}
+	}
+
+	/**
+	 * @param hId - Hotel Id
+	 * @Return the Address of the Hotel
+	 */
+	public Address getAddress (String hId) {
+		try {
+			lock.lockRead();
+			return super.getAddress(hId);
+		}finally {
+			lock.unlockRead();
+		}
+	}
+
+	/**
+	 * @param hId - Hotel Id
+	 * @Return the Reviews of the Hotel
+	 */
+	public TreeSet<Review> getReviews (String hId){
+		try {
+			lock.lockRead();
+			return super.getReviews(hId);
+		}finally {
+			lock.unlockRead();
+		}
 	}
 }
