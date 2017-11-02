@@ -4,18 +4,20 @@ import hotelapp.HotelData;
 import hotelapp.HotelDataBuilder;
 import hotelapp.ThreadSafeHotelData;
 import org.eclipse.jetty.servlet.ServletHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+
+import java.nio.file.Paths;
 
 public class Server {
 
     private static final int PORTSOCKET = 7000;
     private static final int PORTSERVLET = 7050;
-    private static final HotelData HOTEL_DATA = new ThreadSafeHotelData();;
-    private final HotelDataBuilder builder;
+    private static final HotelDataBuilder builder;
+    static final HotelData HOTEL_DATA = new ThreadSafeHotelData();;
 
-    public Server() {
+    static {
         builder = new HotelDataBuilder((ThreadSafeHotelData) HOTEL_DATA);
         builder.loadHotelInfo("input/hotels.json");
+//        builder.loadReviews(Paths.get("input/reviews"));
     }
 
     public static void main(String[] args) throws Exception {
@@ -26,7 +28,9 @@ public class Server {
                 org.eclipse.jetty.server.Server server = new org.eclipse.jetty.server.Server(PORTSERVLET);
 
                 ServletHandler handler = new ServletHandler();
-                handler.addServletWithMapping(new ServletHolder(new HotelInfoServlet()), "/messageBoard");
+                handler.addServletWithMapping(HotelInfoServlet.class, "/hotelInfo");
+                handler.addServletWithMapping(HotelReviewsServlet.class, "/reviews");
+                handler.addServletWithMapping(HotelAttractionsServlet.class, "/attractions");
 
                 server.setHandler(handler);
                 try {

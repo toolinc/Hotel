@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Locale;
 
 public class HttpResponseImpl implements HttpServletResponse{
+
     @Override
     public void addCookie(Cookie cookie) {
 

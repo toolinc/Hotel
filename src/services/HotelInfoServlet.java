@@ -11,6 +11,12 @@ import java.io.PrintWriter;
 
 public class HotelInfoServlet extends HttpServlet{
 
+    private HotelInfoAction action;
+
+    public HotelInfoServlet(){
+        action = new HotelInfoAction();
+    }
+
     /**
      * A method that gets executed when the get request is sent to the
      * HelloServlet
@@ -19,23 +25,22 @@ public class HotelInfoServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("text/html");
-        response.setStatus(HttpServletResponse.SC_OK);
+        response.setContentType("application/json");
 
         PrintWriter out = response.getWriter();
-        String name = request.getParameter("name");
-        if (name == null || name.isEmpty())
-            name = "anonymous";
+        String hotelId = request.getParameter("hotelId");
+        if (hotelId == null || hotelId.isEmpty()) {
+            hotelId = "anonymous";
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        } else {
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
 
-        System.out.println(name);
-        name = StringEscapeUtils.escapeHtml4(name); // need to "clean up" whatever
-        // the user entered
-        System.out.println(name);
+        System.out.println(hotelId);
+        hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
+
         // writing to the response
-        out.println("<html>");
-        out.println("<body>");
-        out.println("<h1>Hello, " + name + "!</h1>");
-        out.println("</body>");
-        out.println("</html>");
+        out.println(action.doQuery("hotelId="+hotelId));
+
     }
 }

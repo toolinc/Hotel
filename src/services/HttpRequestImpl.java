@@ -16,7 +16,7 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public String getAuthType() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -41,12 +41,12 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public Enumeration<String> getHeaderNames() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getIntHeader(String s) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -56,12 +56,12 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public String getPathInfo() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getPathTranslated() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -76,7 +76,7 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public String getRemoteUser() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -86,12 +86,12 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public Principal getUserPrincipal() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getRequestedSessionId() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -106,22 +106,22 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public String getServletPath() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public HttpSession getSession(boolean b) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public HttpSession getSession() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String changeSessionId() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -151,27 +151,27 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public void login(String s, String s1) throws ServletException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void logout() throws ServletException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Collection<Part> getParts() throws IOException, ServletException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Part getPart(String s) throws IOException, ServletException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T extends HttpUpgradeHandler> T upgrade(Class<T> aClass) throws IOException, ServletException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -196,12 +196,12 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public int getContentLength() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getContentLengthLong() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -211,7 +211,7 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public ServletInputStream getInputStream() throws IOException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -241,7 +241,7 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public String getScheme() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -256,17 +256,17 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public BufferedReader getReader() throws IOException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getRemoteAddr() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getRemoteHost() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -276,27 +276,27 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public void removeAttribute(String s) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Locale getLocale() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Enumeration<Locale> getLocales() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isSecure() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public RequestDispatcher getRequestDispatcher(String s) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -306,22 +306,22 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public int getRemotePort() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getLocalName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getLocalAddr() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getLocalPort() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -331,31 +331,31 @@ final class HttpRequestImpl implements HttpServletRequest {
 
     @Override
     public AsyncContext startAsync() throws IllegalStateException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse) throws IllegalStateException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isAsyncStarted() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isAsyncSupported() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public AsyncContext getAsyncContext() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public DispatcherType getDispatcherType() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }
