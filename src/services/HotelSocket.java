@@ -1,23 +1,28 @@
 package services;
 
-import java.io.*;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HotelSocket {
+public final class HotelSocket {
 
-    private static final int PORT = 8000;
     private volatile boolean isShutdown = false;
 
-    public static void main(String[] args) {
-        new HotelSocket().startServer();
-    }
-
-    public void startServer() {
+    public void startServer(int PORT) {
         final ExecutorService threads = Executors.newFixedThreadPool(4);
 
         Runnable serverTask = new Runnable() {
@@ -44,15 +49,16 @@ public class HotelSocket {
         serverThread.start();
     }
 
-    private class ClientTask implements Runnable {
+    private static final class ClientTask implements Runnable {
         private final Socket connectionSocket;
         private final Pattern pattern;
-        private final GetInfo info;
+        private final HotelInfoAction info;
+
 
         private ClientTask(Socket connectionSocket) {
             this.connectionSocket = connectionSocket;
             pattern = Pattern.compile("^(GET|POST)\\s((.+?)\\?([^?]*))(HTTP/.+)");
-            info = new GetInfo();
+            info = new HotelInfoAction();
         }
 
         @Override
@@ -69,26 +75,11 @@ public class HotelSocket {
                     input = reader.readLine();
                     System.out.println("Server received: " + input); // echo the same string to the console
                     if (input.isEmpty()) {
-                        out.println("<html><body><h1>Hello, World!</h1></body></html>");
-                        System.out.println("response: <html><body><h1>Hello, World!</h1></body></html>");
-                        System.out.println("path: "+path);
-                        System.out.println("query : "+query);
+                        System.out.println("path: " + path);
+                        System.out.println("query : " + query);
 
-                        switch (path){
-                            case "/hotelInfo":
-                                out.println(info.getHotelInfo(query));
-                                break;
-                            case "/reviews":
-                                info.getReviews(query);
-                                break;
-                            case "/attractions":
-                                info.getAttractions(query);
-                                break;
-                            default:
-                                break;
-                        }
                     }
-                    if(input.matches("(GET|POST).+")) {
+                    if (input.matches("(GET|POST).+")) {
                         Matcher matcher = pattern.matcher(input);
                         while (matcher.find()) {
                             path = matcher.group(3);

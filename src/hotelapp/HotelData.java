@@ -140,7 +140,7 @@ public class HotelData {
      * @param hId - Hotel Id
      * @Return the Address of the Hotel
      */
-    public Address getAddress (String hId){
+    public Address getAddress (String hId) {
         if(hotels.containsKey(hId)){
             return hotels.get(hId).getAddress();
         }
