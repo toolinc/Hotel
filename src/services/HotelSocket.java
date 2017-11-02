@@ -50,10 +50,17 @@ public final class HotelSocket {
     }
 
     private static final class ClientTask implements Runnable {
+        private static final Map<String, HotelAction> ACTIONS;
         private final Socket connectionSocket;
         private final Pattern pattern;
         private final HotelInfoAction info;
 
+        static {
+            Map<String, HotelAction> actionMap = new HashMap<>();
+            actionMap.put("/hotelInfo", new HotelReviewAction());
+            actionMap.put("reviews", new HotelReviewAction());
+            ACTIONS = Collections.unmodifiableMap(actionMap);
+        }
 
         private ClientTask(Socket connectionSocket) {
             this.connectionSocket = connectionSocket;
@@ -77,7 +84,7 @@ public final class HotelSocket {
                     if (input.isEmpty()) {
                         System.out.println("path: " + path);
                         System.out.println("query : " + query);
-
+                        out.println(ACTIONS.get(path).doQuery(query));
                     }
                     if (input.matches("(GET|POST).+")) {
                         Matcher matcher = pattern.matcher(input);
