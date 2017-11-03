@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6357ff2-4198-4f5a-8657-a4199d8e9905" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/ResponseSocket.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket$2.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/ReviewInfoAction.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/lab6/services/Server$1.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelInfoAction.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/HotelInfoAction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelInfoServlet.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/HotelInfoServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket$1.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelReviewsServlet.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/HotelReviewsServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket$ClientTask.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket$ClientTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/HotelSocket.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/ResponseSocket.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/ResponseSocket.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lab6/services/Server.class" afterPath="$PROJECT_DIR$/out/production/lab6/services/Server.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/lab6/debug.log" afterPath="$PROJECT_DIR$/out/test/lab6/debug.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelInfoAction.java" afterPath="$PROJECT_DIR$/src/services/HotelInfoAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelInfoServlet.java" afterPath="$PROJECT_DIR$/src/services/HotelInfoServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelReviewsServlet.java" afterPath="$PROJECT_DIR$/src/services/HotelReviewsServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelSocket.java" afterPath="$PROJECT_DIR$/src/services/HotelSocket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HttpRequestImpl.java" afterPath="$PROJECT_DIR$/src/services/HttpRequestImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HttpResponseImpl.java" afterPath="$PROJECT_DIR$/src/services/HttpResponseImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ResponseSocket.java" afterPath="$PROJECT_DIR$/src/services/ResponseSocket.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/Server.java" afterPath="$PROJECT_DIR$/src/services/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/debug.log" afterPath="$PROJECT_DIR$/test/debug.log" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +33,8 @@
       <file leaf-file-name="HotelInfoServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/HotelInfoServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+            <state relative-caret-position="444">
+              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#417#418#0" expanded="true" />
@@ -42,12 +44,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpResponseImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/HttpResponseImpl.java">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-              <folding />
+            <state relative-caret-position="466">
+              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HotelReviewsServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/HotelReviewsServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="36" column="88" lean-forward="true" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#425#426#0" expanded="true" />
+                <element signature="e#472#473#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,8 +73,8 @@
       <file leaf-file-name="HotelSocket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/HotelSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="85" column="66" lean-forward="false" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+            <state relative-caret-position="360">
+              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,8 +85,8 @@
       <file leaf-file-name="HotelInfoAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/HotelInfoAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="59" column="46" lean-forward="false" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+            <state relative-caret-position="217">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,26 +94,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseSocket.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReviewInfoAction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/ReviewInfoAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResponseSocket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ResponseSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#742#1472#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,18 +178,20 @@
         <option value="$PROJECT_DIR$/src/services/HotelServlet.java" />
         <option value="$PROJECT_DIR$/src/services/HotelServer.java" />
         <option value="$PROJECT_DIR$/src/services/HotelAttractionsServlet.java" />
-        <option value="$PROJECT_DIR$/src/services/HotelReviewsServlet.java" />
         <option value="$PROJECT_DIR$/src/services/HotelAction.java" />
         <option value="$PROJECT_DIR$/src/services/GetInfo.java" />
         <option value="$PROJECT_DIR$/src/services/HotelReviewAction.java" />
         <option value="$PROJECT_DIR$/src/services/HttpRequestImpl.java" />
         <option value="$PROJECT_DIR$/src/hotelapp/HotelData.java" />
-        <option value="$PROJECT_DIR$/src/services/HotelInfoServlet.java" />
         <option value="$PROJECT_DIR$/src/services/HttpResponseImpl.java" />
-        <option value="$PROJECT_DIR$/src/services/HotelInfoAction.java" />
+        <option value="$PROJECT_DIR$/src/services/ReviewsServlet.java" />
         <option value="$PROJECT_DIR$/src/services/HotelSocket.java" />
         <option value="$PROJECT_DIR$/src/services/ResponseSocket.java" />
+        <option value="$PROJECT_DIR$/src/services/HotelReviewsServlet.java" />
+        <option value="$PROJECT_DIR$/src/services/HotelInfoServlet.java" />
         <option value="$PROJECT_DIR$/src/services/Server.java" />
+        <option value="$PROJECT_DIR$/src/services/HotelInfoAction.java" />
+        <option value="$PROJECT_DIR$/src/services/ReviewInfoAction.java" />
       </list>
     </option>
   </component>
@@ -558,23 +577,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/input/ApiKey.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hotelapp/TouristAttractionFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/studentOutput1Rad2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -943,16 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/HotelReviewsServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hotelapp/HotelData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -985,46 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/HttpResponseImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/HotelInfoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/HotelInfoAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="59" column="46" lean-forward="false" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/HotelSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="85" column="66" lean-forward="false" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input/hotels.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -1033,21 +985,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Server.java">
+    <entry file="file://$PROJECT_DIR$/src/services/HttpResponseImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ReviewsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="45" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/HotelSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#742#1472#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/HotelReviewsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="36" column="88" lean-forward="true" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/HotelInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/HotelInfoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/ResponseSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ReviewInfoAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

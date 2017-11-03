@@ -58,7 +58,7 @@ public final class HotelSocket {
         static {
             Map<String, HotelAction> actionMap = new HashMap<>();
             actionMap.put("/hotelInfo", new HotelInfoAction());
-            actionMap.put("reviews", new HotelReviewAction());
+            actionMap.put("/reviews", new ReviewInfoAction());
             ACTIONS = Collections.unmodifiableMap(actionMap);
         }
 

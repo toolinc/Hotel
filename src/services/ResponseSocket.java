@@ -7,7 +7,6 @@ public class ResponseSocket {
 
 
     public String doResponseHotelInfo(String hotelInfo){
-
         StringBuffer sb = new StringBuffer("HTTP/1.1 ");
         if(hotelInfo.contains("true")) {
             sb.append(HttpServletResponse.SC_OK +" OK "+ System.lineSeparator());
@@ -20,8 +19,9 @@ public class ResponseSocket {
         sb.append("Content-Length: "+hotelInfo.length()+System.lineSeparator());
         sb.append("Connection: Close"+System.lineSeparator());
         sb.append(System.lineSeparator()+hotelInfo);
+
         System.out.println("Repsonse\n"+sb.toString());
+
         return sb.toString();
     }
-
 }

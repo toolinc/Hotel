@@ -24,23 +24,16 @@ public class HotelInfoServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        response.setContentType("application/json");
-
         PrintWriter out = response.getWriter();
+        response.setContentType("application/json");
         String hotelId = request.getParameter("hotelId");
         if (hotelId == null || hotelId.isEmpty()) {
-            hotelId = "anonymous";
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
         }
-
-        System.out.println(hotelId);
         hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
-
-        // writing to the response
+        System.out.println(hotelId);
         out.println(action.doQuery("hotelId="+hotelId));
-
     }
 }

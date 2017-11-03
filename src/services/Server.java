@@ -17,29 +17,24 @@ public class Server {
     static {
         builder = new HotelDataBuilder((ThreadSafeHotelData) HOTEL_DATA);
         builder.loadHotelInfo("input/hotels.json");
-//        builder.loadReviews(Paths.get("input/reviews"));
+        builder.loadReviews(Paths.get("input/reviews"));
     }
 
     public static void main(String[] args) throws Exception {
         //Start Servlet server
-        new Thread() {
-            @Override
-            public void run() {
-                org.eclipse.jetty.server.Server server = new org.eclipse.jetty.server.Server(PORTSERVLET);
-
-                ServletHandler handler = new ServletHandler();
-                handler.addServletWithMapping(HotelInfoServlet.class, "/hotelInfo");
-                handler.addServletWithMapping(HotelReviewsServlet.class, "/reviews");
-                handler.addServletWithMapping(HotelAttractionsServlet.class, "/attractions");
-
-                server.setHandler(handler);
-                try {
-                    server.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        new Thread(() -> {
+            org.eclipse.jetty.server.Server server = new org.eclipse.jetty.server.Server(PORTSERVLET);
+            ServletHandler handler = new ServletHandler();
+            handler.addServletWithMapping(HotelInfoServlet.class, "/hotelInfo");
+            handler.addServletWithMapping(HotelReviewsServlet.class, "/reviews");
+            handler.addServletWithMapping(HotelAttractionsServlet.class, "/attractions");
+            server.setHandler(handler);
+            try {
+                server.start();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }.start();
+        }).start();
         //Start socket server
         new HotelSocket().startServer(PORTSOCKET);
     }
