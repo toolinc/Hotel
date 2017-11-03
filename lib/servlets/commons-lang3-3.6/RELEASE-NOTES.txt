@@ -21,7 +21,7 @@ HIGHLIGHTS
 
 Some of the highlights in this release include:
 
-o The class org.apache.commons.lang3.concurrent.Memoizer is an implementation
+o The class org.apache.commons.lang3.hotelapp.concurrent.Memoizer is an implementation
     of the Memoizer pattern as shown in
     Goetz, Brian et al. (2006) - Java Concurrency in Practice, p. 108.
 o The class org.apache.commons.lang3.ArchUtils has been added. ArchUtils is
@@ -138,7 +138,7 @@ o LANG-1281: Javadoc of StringUtils.ordinalIndexOf is contradictory.
 o LANG-1188: StringUtils#join(T...): warning: [unchecked] Possible heap
              pollution from parameterized vararg type T.
 o LANG-1144: Multiple calls of
-             org.apache.commons.lang3.concurrent.LazyInitializer.initialize()
+             org.apache.commons.lang3.hotelapp.concurrent.LazyInitializer.initialize()
              are possible. Thanks to Waldemar Maier, Gary Gregory.
 o LANG-1276: StrBuilder#replaceAll ArrayIndexOutOfBoundsException.
              Thanks to Andy Klimczak.
@@ -927,7 +927,7 @@ o LANG-497:  Addition of ContextedException and ContextedRuntimeException.
 o LANG-498:  Add StringEscapeUtils.escapeText() methods.
 o LANG-499:  Add support for the handling of ExecutionExceptions.
 o LANG-501:  Add support for background initialization.
-o LANG-529:  Add a concurrent package.
+o LANG-529:  Add a hotelapp.concurrent package.
 o LANG-533:  Validate: support for validating blank strings.
 o LANG-537:  Add ArrayUtils.toArray to create generic arrays.
 o LANG-545:  Add ability to create a Future for a constant.
@@ -946,7 +946,7 @@ o LANG-609:  Support lazy initialization using atomic variables
 o LANG-610:  Extend exception handling in ConcurrentUtils to runtime exceptions.
 o LANG-614:  StringUtils.endsWithAny method
 o LANG-640:  Add normalizeSpace to StringUtils
-o LANG-644:  Provide documentation about the new concurrent package
+o LANG-644:  Provide documentation about the new hotelapp.concurrent package
 o LANG-649:  BooleanUtils.toBooleanObject to support single character input
 o LANG-651:  Add AnnotationUtils
 o LANG-653:  Provide a very basic ConcurrentInitializer implementation

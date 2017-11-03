@@ -8,7 +8,7 @@ import hotelapp.model.Review;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import concurrent.ReentrantReadWriteLock;
+import hotelapp.concurrent.ReentrantReadWriteLock;
 
 /**
  * Class HotelCacheThreadSafe - extends class HotelCache.

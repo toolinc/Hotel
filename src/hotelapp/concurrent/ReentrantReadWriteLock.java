@@ -1,4 +1,4 @@
-package concurrent;
+package hotelapp.concurrent;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
 package hotelapp.cache;
 
-import concurrent.WorkQueue;
+import hotelapp.concurrent.WorkQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
