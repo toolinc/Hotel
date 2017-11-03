@@ -13,7 +13,7 @@ public class HotelAttractionsServlet extends HttpServlet {
 
     private HotelAttractionAction action;
 
-    public HotelAttractionsServlet(){
+    public HotelAttractionsServlet() {
         action = new HotelAttractionAction();
     }
 
@@ -28,13 +28,18 @@ public class HotelAttractionsServlet extends HttpServlet {
         response.setContentType("application/json");
         String hotelId = request.getParameter("hotelId");
         String radius = request.getParameter("radius");
-        if (hotelId == null || hotelId.isEmpty() || radius==null || radius.isEmpty()) {
-            hotelId = "anonymous";
+        if (hotelId == null || hotelId.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
         }
         hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
-        out.println(action.doQuery("hotelId="+hotelId+"&radius="+radius));
+        String query = "";
+        if (hotelId != null && radius != null) {
+            query = "hotelId=" + hotelId + "&radius=" + radius;
+        } else if (hotelId != null) {
+            query = "hotelId=" + hotelId;
+        }
+        out.println(action.doQuery(query));
     }
 }

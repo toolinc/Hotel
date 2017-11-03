@@ -99,11 +99,10 @@ public class TouristAttractionFinder {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
-                if (!line.matches("^[A-Z].*")) {
+                if (!line.matches("^[A-Z].*") && !line.isEmpty()) {
                     sb.append(line);
                     sb.append(System.lineSeparator());
                 }
-                System.out.println(line);
             }
         } catch (IOException e) {
             System.out.println(

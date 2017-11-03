@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class HotelReviewAction implements HotelAction {
     @Override
     public String doQuery(String query) {
-        Pattern pattern = Pattern.compile("hotelId=(.+)&num=(\\d+)");
+        Pattern pattern = Pattern.compile("hotelId=(\\d+)&num=(\\d+)");
         Matcher matcher = pattern.matcher(query);
         StringBuffer sb = new StringBuffer("{" + System.lineSeparator() + "\"success\":");
         String id = "";
@@ -32,8 +32,8 @@ public class HotelReviewAction implements HotelAction {
                 sb.append("\"reviewId\": \"" + review.getReviewId() + "\"," + System.lineSeparator());
                 sb.append("\"title\": \"" + review.getReviewTitle() + "\"," + System.lineSeparator());
                 sb.append("\"user\":\"" + review.getUsername() + "\"," + System.lineSeparator());
-                sb.append("\"\"reviewText\":\"" + review.getReview() + "\"," + System.lineSeparator());
-                sb.append("\"date\":\"" + review.getDate() + "\"," + System.lineSeparator());
+                sb.append("\"reviewText\":\"" + review.getReview() + "\"," + System.lineSeparator());
+                sb.append("\"date\":\"" + review.getDate() + "\"" + System.lineSeparator());
                 count++;
                 if (count == numReviews) {
                     sb.append("}" + System.lineSeparator());
@@ -45,7 +45,7 @@ public class HotelReviewAction implements HotelAction {
         } else {
             sb.append("false," + System.lineSeparator());
             sb.append("\"hotelId\":");
-            sb.append("\"invalid\":\"" + System.lineSeparator());
+            sb.append("\"invalid\"" + System.lineSeparator());
             sb.append("}");
         }
         return sb.toString();

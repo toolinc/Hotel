@@ -1,9 +1,5 @@
 package services;
 
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -65,7 +61,7 @@ public final class HotelSocket {
 
         private ClientTask(Socket connectionSocket) {
             this.connectionSocket = connectionSocket;
-            pattern = Pattern.compile("^(GET|POST)\\s((.+?)\\?([^?]*))(HTTP/.+)");
+            pattern = Pattern.compile("^(GET|POST)\\s((\\/\\w+)\\??([^?]*))\\s(HTTP\\/.+)");
             responseSocket = new ResponseSocket();
         }
 
@@ -82,7 +78,13 @@ public final class HotelSocket {
                 while (!connectionSocket.isClosed()) {
                     input = reader.readLine();
                     if (input.isEmpty()) {
-                        out.println(responseSocket.doResponseHotelInfo(ACTIONS.get(path).doQuery(query)));
+                        if (ACTIONS.containsKey(path)) {
+                            out.println(responseSocket.doResponseHotelInfo(ACTIONS.get(path).doQuery(query)));
+                        } else if (!path.isEmpty()) {
+                            out.println(responseSocket.doResponseHotelInfo("SC_NOT_FOUND"));
+                        } else {
+                            out.println(responseSocket.doResponseHotelInfo("SC_METHOD_NOT_ALLOWED"));
+                        }
                     }
                     if (input.matches("(GET|POST).+")) {
                         Matcher matcher = pattern.matcher(input);

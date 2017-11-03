@@ -9,16 +9,22 @@ public class HotelInfoAction implements HotelAction {
 
     @Override
     public String doQuery(String query) {
-        System.out.println("get Info ");
-        Pattern pattern = Pattern.compile("hotelId=(.+)\\s");
+
+        System.out.println("get Info " + query);
+
+        Pattern pattern = Pattern.compile("hotelId=(\\d+)");
         Matcher matcher = pattern.matcher(query);
         String hotelName = "";
         String id = "";
         StringBuffer sb = new StringBuffer("{" + System.lineSeparator() + "\"success\":");
         while (matcher.find()) {
-            id = matcher.group(1);
+            id = matcher.group(1).trim();
             hotelName = Server.HOTEL_DATA.getHotelName(id);
         }
+
+        System.out.println("id " + id);
+        System.out.println("name " + Server.HOTEL_DATA.getHotelName(id));
+
         if (!hotelName.equals("")) {
             Address address = Server.HOTEL_DATA.getAddress(id);
             sb.append("true," + System.lineSeparator());
@@ -33,7 +39,7 @@ public class HotelInfoAction implements HotelAction {
         } else {
             sb.append("false," + System.lineSeparator());
             sb.append("\"hotelId\":");
-            sb.append("\"invalid\":\"" + System.lineSeparator());
+            sb.append("\"invalid\"" + System.lineSeparator());
             sb.append("}");
         }
         return sb.toString();

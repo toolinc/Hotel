@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class HotelInfoServlet extends HttpServlet{
+public class HotelInfoServlet extends HttpServlet {
 
     private HotelInfoAction action;
 
-    public HotelInfoServlet(){
+    public HotelInfoServlet() {
         action = new HotelInfoAction();
     }
 
@@ -32,7 +32,8 @@ public class HotelInfoServlet extends HttpServlet{
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
         }
+        System.out.println("Hotel Id sev " + hotelId);
         hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
-        out.println(action.doQuery("hotelId="+hotelId));
+        out.println(action.doQuery("hotelId=" + hotelId));
     }
 }

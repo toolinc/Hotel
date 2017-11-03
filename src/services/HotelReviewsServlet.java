@@ -13,7 +13,7 @@ public class HotelReviewsServlet extends HttpServlet {
 
     private HotelReviewAction action;
 
-    public HotelReviewsServlet(){
+    public HotelReviewsServlet() {
         action = new HotelReviewAction();
     }
 
@@ -28,13 +28,13 @@ public class HotelReviewsServlet extends HttpServlet {
         response.setContentType("application/json");
         String hotelId = request.getParameter("hotelId");
         String num = request.getParameter("num");
-        if (hotelId == null || hotelId.isEmpty() || num==null || num.isEmpty()) {
+        if (hotelId == null || hotelId.isEmpty() || num == null || num.isEmpty()) {
             hotelId = "anonymous";
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
         }
         hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
-        out.println(action.doQuery("hotelId="+hotelId+"&num="+num));
+        out.println(action.doQuery("hotelId=" + hotelId + "&num=" + num));
     }
 }
