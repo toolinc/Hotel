@@ -33,7 +33,6 @@ public class HotelInfoServlet extends HttpServlet{
             response.setStatus(HttpServletResponse.SC_OK);
         }
         hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
-        System.out.println(hotelId);
         out.println(action.doQuery("hotelId="+hotelId));
     }
 }

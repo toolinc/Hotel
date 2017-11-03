@@ -11,10 +11,10 @@ import java.io.PrintWriter;
 
 public class HotelReviewsServlet extends HttpServlet {
 
-    private ReviewInfoAction action;
+    private HotelReviewAction action;
 
     public HotelReviewsServlet(){
-        action = new ReviewInfoAction();
+        action = new HotelReviewAction();
     }
 
     /**
@@ -35,7 +35,6 @@ public class HotelReviewsServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
         }
         hotelId = StringEscapeUtils.escapeHtml4(hotelId); // need to "clean up" whatever
-        System.out.println(hotelId);
         out.println(action.doQuery("hotelId="+hotelId+"&num="+num));
     }
 }

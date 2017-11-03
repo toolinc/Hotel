@@ -83,6 +83,44 @@ public class TouristAttractionFinder {
     }
 
 
+    public String getAttractions(String hId, int radiusInMiles) {
+        PrintWriter out = null;
+        BufferedReader in = null;
+        SSLSocket socket = null;
+        StringBuffer sb = new StringBuffer();
+        try {
+            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            socket = (SSLSocket) factory.createSocket(host, PORT);
+            String request = getRequest(hId, radiusInMiles * MILE_TO_METERS);
+            System.out.println("Request: " + request);
+            out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+            out.println(request);
+            out.flush();
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+                if (!line.matches("^[A-Z].*")) {
+                    sb.append(line);
+                    sb.append(System.lineSeparator());
+                }
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println(
+                    "An IOException occured while writing to the socket stream or reading from the stream: " + e);
+        } finally {
+            try {
+                out.close();
+                in.close();
+                socket.close();
+            } catch (IOException e) {
+                System.out.println("An exception occured while trying to close the streams or the socket: " + e);
+            }
+        }
+        return sb.toString();
+    }
+
+
     /**
      * A method that creates a GET request for the given host and resource
      *

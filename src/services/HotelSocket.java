@@ -58,7 +58,8 @@ public final class HotelSocket {
         static {
             Map<String, HotelAction> actionMap = new HashMap<>();
             actionMap.put("/hotelInfo", new HotelInfoAction());
-            actionMap.put("/reviews", new ReviewInfoAction());
+            actionMap.put("/reviews", new HotelReviewAction());
+            actionMap.put("/attractions", new HotelAttractionAction());
             ACTIONS = Collections.unmodifiableMap(actionMap);
         }
 
@@ -80,9 +81,7 @@ public final class HotelSocket {
                 String query = "";
                 while (!connectionSocket.isClosed()) {
                     input = reader.readLine();
-                    System.out.println("Server received: " + input); // echo the same string to the console
                     if (input.isEmpty()) {
-//                        responseSocket.doResponseHotelInfo(ACTIONS.get(path).doQuery(query));
                         out.println(responseSocket.doResponseHotelInfo(ACTIONS.get(path).doQuery(query)));
                     }
                     if (input.matches("(GET|POST).+")) {
