@@ -3,8 +3,11 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.*;
 import java.util.*;
+
+import hotelapp.cache.HotelCacheThreadSafeBuilder;
+import hotelapp.cache.HotelCacheThreadSafe;
+import hotelapp.client.TouristAttractionFinder;
 import org.junit.*;
-import hotelapp.*;
 
 /**
  * Author: okarpenko.
@@ -80,8 +83,8 @@ public class Lab6Test {
 		// fetch attractions in the radius of 2 miles from the hotel in
 		// hotels1.json
 		String testName = "testFetchAttractionsHotels1Radius2";
-		ThreadSafeHotelData hdata = new ThreadSafeHotelData();
-		HotelDataBuilder builder = new HotelDataBuilder(hdata);
+		HotelCacheThreadSafe hdata = new HotelCacheThreadSafe();
+		HotelCacheThreadSafeBuilder builder = new HotelCacheThreadSafeBuilder(hdata);
 		String inputHotelFile = INPUT_DIR + File.separator + "hotels1.json";
 		builder.loadHotelInfo(inputHotelFile);
 		TouristAttractionFinder finder = new TouristAttractionFinder(hdata);
@@ -112,8 +115,8 @@ public class Lab6Test {
 	public void testFetchAttractionsHotels4Radius2() {
 		// fetch attractions close to hotels in hotels4.json
 		String testName = "testFetchAttractionsHotels4Radius2";
-		ThreadSafeHotelData hdata = new ThreadSafeHotelData();
-		HotelDataBuilder builder = new HotelDataBuilder(hdata);
+		HotelCacheThreadSafe hdata = new HotelCacheThreadSafe();
+		HotelCacheThreadSafeBuilder builder = new HotelCacheThreadSafeBuilder(hdata);
 		String inputHotelFile = INPUT_DIR + File.separator + "hotels4.json";
 		builder.loadHotelInfo(inputHotelFile);
 		TouristAttractionFinder finder = new TouristAttractionFinder(hdata);
