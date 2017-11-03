@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 
 public class Server {
 
-    private static final int PORTSOCKET = 8000;
-    private static final int PORTSERVLET = 8050;
+    private static final int PORTSOCKET = 7000;
+    private static final int PORTSERVLET = 7050;
     private static final HotelDataBuilder builder;
     static final HotelData HOTEL_DATA = new ThreadSafeHotelData();
     ;

@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6357ff2-4198-4f5a-8657-a4199d8e9905" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hotelapp/TouristAttractionFinder.java" afterPath="$PROJECT_DIR$/src/hotelapp/TouristAttractionFinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelAttractionAction.java" afterPath="$PROJECT_DIR$/src/services/HotelAttractionAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelAttractionsServlet.java" afterPath="$PROJECT_DIR$/src/services/HotelAttractionsServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelInfoAction.java" afterPath="$PROJECT_DIR$/src/services/HotelInfoAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelInfoServlet.java" afterPath="$PROJECT_DIR$/src/services/HotelInfoServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelReviewAction.java" afterPath="$PROJECT_DIR$/src/services/HotelReviewAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelReviewsServlet.java" afterPath="$PROJECT_DIR$/src/services/HotelReviewsServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelServer.java" afterPath="$PROJECT_DIR$/src/services/HotelServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HotelSocket.java" afterPath="$PROJECT_DIR$/src/services/HotelSocket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/HttpResponseImpl.java" afterPath="$PROJECT_DIR$/src/services/HttpResponseImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ResponseSocket.java" afterPath="$PROJECT_DIR$/src/services/ResponseSocket.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/Server.java" afterPath="$PROJECT_DIR$/src/services/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/debug.log" afterPath="$PROJECT_DIR$/test/debug.log" />
     </list>
@@ -85,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="13">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpResponseImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HttpResponseImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/HttpResponseImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -216,8 +205,8 @@
         <option value="$PROJECT_DIR$/src/services/HotelServer.java" />
         <option value="$PROJECT_DIR$/src/services/HotelSocket.java" />
         <option value="$PROJECT_DIR$/src/services/ResponseSocket.java" />
-        <option value="$PROJECT_DIR$/src/services/Server.java" />
         <option value="$PROJECT_DIR$/src/services/HttpResponseImpl.java" />
+        <option value="$PROJECT_DIR$/src/services/Server.java" />
       </list>
     </option>
   </component>
@@ -962,16 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/HttpRequestImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -985,6 +964,16 @@
         <state relative-caret-position="150">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
